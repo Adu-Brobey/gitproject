@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: depapp-deployment
+  labels:
+    app: depapp
+    type: front-end
+spec: 
+  replicas: 3
+  selector: 
+    matchLabels: 
+      app: depapp 
+      type: front-end
+  template: 
+    metadata: 
+      labels: 
+        app: depapp 
+        type: front-end
+    spec: 
+      containers: 
+      - name: tomcat-container
+        image: tomcat
